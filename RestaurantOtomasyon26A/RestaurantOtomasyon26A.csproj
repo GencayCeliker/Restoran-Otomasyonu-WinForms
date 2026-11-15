@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{858786C0-2971-4A75-8D74-E12CF8CD5718}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RestaurantOtomasyon26A</RootNamespace>
+    <AssemblyName>RestaurantOtomasyon26A</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EskiAdminPaneli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EskiAdminPaneli.Designer.cs">
+      <DependentUpon>EskiAdminPaneli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAdminPaneli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdminPaneli.Designer.cs">
+      <DependentUpon>FrmAdminPaneli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGarson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGarson.Designer.cs">
+      <DependentUpon>FrmGarson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGarsonMEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGarsonMEkle.Designer.cs">
+      <DependentUpon>frmGarsonMEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGarsonMGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGarsonMGuncelle.Designer.cs">
+      <DependentUpon>frmGarsonMGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKasiyer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKasiyer.Designer.cs">
+      <DependentUpon>FrmKasiyer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKasiyerCikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKasiyerCikis.Designer.cs">
+      <DependentUpon>frmKasiyerCikis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKasiyerKasaGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKasiyerKasaGiris.Designer.cs">
+      <DependentUpon>FrmKasiyerKasaGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKatEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKatEkle.Designer.cs">
+      <DependentUpon>frmKatEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKatGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKatGuncelle.Designer.cs">
+      <DependentUpon>frmKatGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMasaBirlestir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMasaBirlestir.Designer.cs">
+      <DependentUpon>FrmMasaBirlestir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMasaEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMasaEkle.Designer.cs">
+      <DependentUpon>frmMasaEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMasaGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMasaGuncelle.Designer.cs">
+      <DependentUpon>frmMasaGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPerEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPerEkle.Designer.cs">
+      <DependentUpon>frmPerEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPerGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPerGuncelle.Designer.cs">
+      <DependentUpon>frmPerGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSatışAnalizi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSatışAnalizi.Designer.cs">
+      <DependentUpon>frmSatışAnalizi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUrunEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUrunEkle.Designer.cs">
+      <DependentUpon>frmUrunEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUrunGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUrunGuncelle.Designer.cs">
+      <DependentUpon>frmUrunGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Garson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Garson.Designer.cs">
+      <DependentUpon>Garson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kasiyer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kasiyer.Designer.cs">
+      <DependentUpon>Kasiyer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SatisTakip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SatisTakip.Designer.cs">
+      <DependentUpon>SatisTakip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLADISYON.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLGUNSONU.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLHESAPODEME.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLISLEMLOG.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLKASAHARAKET.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLKATEGORI.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLMASA.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLMUSTERI.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLODEMETURU.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLPERSONEL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLSATISLAR.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLSERVISTURU.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBLURUN.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UcAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcAdmin.Designer.cs">
+      <DependentUpon>UcAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcDashboard.Designer.cs">
+      <DependentUpon>UcDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcGarsonAdisyonlar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcGarsonAdisyonlar.Designer.cs">
+      <DependentUpon>UcGarsonAdisyonlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcGarsonMasaDuzenı.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcGarsonMasaDuzenı.Designer.cs">
+      <DependentUpon>UcGarsonMasaDuzenı.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcGarsonQR.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcGarsonQR.Designer.cs">
+      <DependentUpon>UcGarsonQR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcKasiyerOdemeAl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcKasiyerOdemeAl.Designer.cs">
+      <DependentUpon>UcKasiyerOdemeAl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcKasiyerAna.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcKasiyerAna.Designer.cs">
+      <DependentUpon>UcKasiyerAna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcKasiyerKasaIslemleri.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcKasiyerKasaIslemleri.Designer.cs">
+      <DependentUpon>UcKasiyerKasaIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcKategoriYontemi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcKategoriYontemi.Designer.cs">
+      <DependentUpon>UcKategoriYontemi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucMasaYonetimi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMasaYonetimi.Designer.cs">
+      <DependentUpon>ucMasaYonetimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcGarsonMusteriler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcGarsonMusteriler.Designer.cs">
+      <DependentUpon>UcGarsonMusteriler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcPersonelYonetim.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcPersonelYonetim.Designer.cs">
+      <DependentUpon>UcPersonelYonetim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcUrunYonetimi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcUrunYonetimi.Designer.cs">
+      <DependentUpon>UcUrunYonetimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yonetim.Designer.cs">
+      <DependentUpon>Yonetim.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EskiAdminPaneli.resx">
+      <DependentUpon>EskiAdminPaneli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAdminPaneli.resx">
+      <DependentUpon>FrmAdminPaneli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGarson.resx">
+      <DependentUpon>FrmGarson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGarsonMEkle.resx">
+      <DependentUpon>frmGarsonMEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGarsonMGuncelle.resx">
+      <DependentUpon>frmGarsonMGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKasiyer.resx">
+      <DependentUpon>FrmKasiyer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKasiyerCikis.resx">
+      <DependentUpon>frmKasiyerCikis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKasiyerKasaGiris.resx">
+      <DependentUpon>FrmKasiyerKasaGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKatEkle.resx">
+      <DependentUpon>frmKatEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKatGuncelle.resx">
+      <DependentUpon>frmKatGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMasaBirlestir.resx">
+      <DependentUpon>FrmMasaBirlestir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMasaEkle.resx">
+      <DependentUpon>frmMasaEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMasaGuncelle.resx">
+      <DependentUpon>frmMasaGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPerEkle.resx">
+      <DependentUpon>frmPerEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPerGuncelle.resx">
+      <DependentUpon>frmPerGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSatışAnalizi.resx">
+      <DependentUpon>frmSatışAnalizi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUrunEkle.resx">
+      <DependentUpon>frmUrunEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUrunGuncelle.resx">
+      <DependentUpon>frmUrunGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Garson.resx">
+      <DependentUpon>Garson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kasiyer.resx">
+      <DependentUpon>Kasiyer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SatisTakip.resx">
+      <DependentUpon>SatisTakip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcAdmin.resx">
+      <DependentUpon>UcAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcDashboard.resx">
+      <DependentUpon>UcDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcGarsonAdisyonlar.resx">
+      <DependentUpon>UcGarsonAdisyonlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcGarsonMasaDuzenı.resx">
+      <DependentUpon>UcGarsonMasaDuzenı.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcGarsonQR.resx">
+      <DependentUpon>UcGarsonQR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcKasiyerOdemeAl.resx">
+      <DependentUpon>UcKasiyerOdemeAl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcKasiyerAna.resx">
+      <DependentUpon>UcKasiyerAna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcKasiyerKasaIslemleri.resx">
+      <DependentUpon>UcKasiyerKasaIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcKategoriYontemi.resx">
+      <DependentUpon>UcKategoriYontemi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMasaYonetimi.resx">
+      <DependentUpon>ucMasaYonetimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcGarsonMusteriler.resx">
+      <DependentUpon>UcGarsonMusteriler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcPersonelYonetim.resx">
+      <DependentUpon>UcPersonelYonetim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcUrunYonetimi.resx">
+      <DependentUpon>UcUrunYonetimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yonetim.resx">
+      <DependentUpon>Yonetim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

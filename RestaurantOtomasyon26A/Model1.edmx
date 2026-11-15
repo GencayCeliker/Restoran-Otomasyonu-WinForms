@@ -1,0 +1,905 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbRestaurant26AModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TBLADISYON">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SERVISTURU" Type="int" />
+          <Property Name="PERSONELID" Type="int" />
+          <Property Name="MASAID" Type="int" />
+          <Property Name="TARIH" Type="smalldatetime" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLGUNSONU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TARIH" Type="datetime" />
+          <Property Name="TOPLAMNAKIT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TOPLAMKART" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TOPLAMTICKET" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TOPLAMDIGER" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TOPLAMQR" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="KASAGIRISI" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="KASACIKISI" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="NETBAKIYE" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="TBLHESAPODEME">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADISYONID" Type="int" />
+          <Property Name="ODEMETURU" Type="int" />
+          <Property Name="ARATOPLAM" Type="money" />
+          <Property Name="KDV" Type="money" />
+          <Property Name="INDIRIM" Type="money" />
+          <Property Name="TOPLAMTUTAR" Type="money" />
+          <Property Name="TARIH" Type="smalldatetime" />
+          <Property Name="MUSTERIID" Type="int" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLISLEMLOG">
+          <Key>
+            <PropertyRef Name="IslemID" />
+          </Key>
+          <Property Name="IslemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="IslemTuru" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kullanici" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TBLKASAHARAKET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ISLEMTURU" Type="bit" />
+          <Property Name="TARIHSAAT" Type="datetime" />
+          <Property Name="TUTAR" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ACIKLAMA" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TBLKATEGORI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KATEGORI" Type="nvarchar" MaxLength="50" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLMASA">
+          <Key>
+            <PropertyRef Name="MASAID" />
+          </Key>
+          <Property Name="MASAID" Type="int" Nullable="false" />
+          <Property Name="KAPASITE" Type="int" />
+          <Property Name="SERVISTURU" Type="int" />
+          <Property Name="DURUM" Type="char" MaxLength="1" />
+          <Property Name="AKTIFMI" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLMUSTERI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADSOYAD" Type="nvarchar" MaxLength="100" />
+          <Property Name="TEL" Type="nvarchar" MaxLength="20" />
+          <Property Name="SIPARISSAYISI" Type="smallint" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLODEMETURU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ODEMETURU" Type="nvarchar" MaxLength="50" />
+          <Property Name="ACIKLAMA" Type="nvarchar" MaxLength="100" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLPERSONEL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADSOYAD" Type="nvarchar" MaxLength="100" />
+          <Property Name="GOREV" Type="nvarchar" MaxLength="50" />
+          <Property Name="SIFRE" Type="nvarchar" MaxLength="20" />
+          <Property Name="KULLANICIADI" Type="nvarchar" MaxLength="20" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLSATISLAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADISYONID" Type="int" />
+          <Property Name="URUNID" Type="int" />
+          <Property Name="MASAID" Type="int" />
+          <Property Name="ADET" Type="int" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLSERVISTURU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SERVISTURU" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="TBLURUN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="URUNAD" Type="nvarchar" MaxLength="100" />
+          <Property Name="KATEGORI" Type="int" />
+          <Property Name="FIYAT" Type="money" />
+          <Property Name="ACIKLAMA" Type="nvarchar" MaxLength="500" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
+        <Association Name="FK_TBLADISYON_TBLMASA">
+          <End Role="TBLMASA" Type="Self.TBLMASA" Multiplicity="0..1" />
+          <End Role="TBLADISYON" Type="Self.TBLADISYON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLMASA">
+              <PropertyRef Name="MASAID" />
+            </Principal>
+            <Dependent Role="TBLADISYON">
+              <PropertyRef Name="MASAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLADISYON_TBLPERSONEL">
+          <End Role="TBLPERSONEL" Type="Self.TBLPERSONEL" Multiplicity="0..1" />
+          <End Role="TBLADISYON" Type="Self.TBLADISYON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONEL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLADISYON">
+              <PropertyRef Name="PERSONELID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLADISYON_TBLSERVISTURU">
+          <End Role="TBLSERVISTURU" Type="Self.TBLSERVISTURU" Multiplicity="0..1" />
+          <End Role="TBLADISYON" Type="Self.TBLADISYON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLSERVISTURU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLADISYON">
+              <PropertyRef Name="SERVISTURU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHESAPODEME_TBLADISYON">
+          <End Role="TBLADISYON" Type="Self.TBLADISYON" Multiplicity="0..1" />
+          <End Role="TBLHESAPODEME" Type="Self.TBLHESAPODEME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLADISYON">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHESAPODEME">
+              <PropertyRef Name="ADISYONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHESAPODEME_TBLMUSTERI">
+          <End Role="TBLMUSTERI" Type="Self.TBLMUSTERI" Multiplicity="0..1" />
+          <End Role="TBLHESAPODEME" Type="Self.TBLHESAPODEME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLMUSTERI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHESAPODEME">
+              <PropertyRef Name="MUSTERIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHESAPODEME_TBLODEMETURU">
+          <End Role="TBLODEMETURU" Type="Self.TBLODEMETURU" Multiplicity="0..1" />
+          <End Role="TBLHESAPODEME" Type="Self.TBLHESAPODEME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLODEMETURU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHESAPODEME">
+              <PropertyRef Name="ODEMETURU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLMASA_TBLSERVISTURU">
+          <End Role="TBLSERVISTURU" Type="Self.TBLSERVISTURU" Multiplicity="0..1" />
+          <End Role="TBLMASA" Type="Self.TBLMASA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLSERVISTURU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLMASA">
+              <PropertyRef Name="SERVISTURU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSATISLAR_TBLADISYON">
+          <End Role="TBLADISYON" Type="Self.TBLADISYON" Multiplicity="0..1" />
+          <End Role="TBLSATISLAR" Type="Self.TBLSATISLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLADISYON">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLSATISLAR">
+              <PropertyRef Name="ADISYONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSATISLAR_TBLMASA">
+          <End Role="TBLMASA" Type="Self.TBLMASA" Multiplicity="0..1" />
+          <End Role="TBLSATISLAR" Type="Self.TBLSATISLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLMASA">
+              <PropertyRef Name="MASAID" />
+            </Principal>
+            <Dependent Role="TBLSATISLAR">
+              <PropertyRef Name="MASAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSATISLAR_TBLURUN">
+          <End Role="TBLURUN" Type="Self.TBLURUN" Multiplicity="0..1" />
+          <End Role="TBLSATISLAR" Type="Self.TBLSATISLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLURUN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLSATISLAR">
+              <PropertyRef Name="URUNID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUN_TBLKATEGORI">
+          <End Role="TBLKATEGORI" Type="Self.TBLKATEGORI" Multiplicity="0..1" />
+          <End Role="TBLURUN" Type="Self.TBLURUN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLURUN">
+              <PropertyRef Name="KATEGORI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbRestaurant26AModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLADISYON" EntityType="Self.TBLADISYON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLGUNSONU" EntityType="Self.TBLGUNSONU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLHESAPODEME" EntityType="Self.TBLHESAPODEME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLISLEMLOG" EntityType="Self.TBLISLEMLOG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLKASAHARAKET" EntityType="Self.TBLKASAHARAKET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLKATEGORI" EntityType="Self.TBLKATEGORI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLMASA" EntityType="Self.TBLMASA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLMUSTERI" EntityType="Self.TBLMUSTERI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLODEMETURU" EntityType="Self.TBLODEMETURU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLPERSONEL" EntityType="Self.TBLPERSONEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSATISLAR" EntityType="Self.TBLSATISLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSERVISTURU" EntityType="Self.TBLSERVISTURU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLURUN" EntityType="Self.TBLURUN" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLADISYON_TBLMASA" Association="Self.FK_TBLADISYON_TBLMASA">
+            <End Role="TBLMASA" EntitySet="TBLMASA" />
+            <End Role="TBLADISYON" EntitySet="TBLADISYON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLADISYON_TBLPERSONEL" Association="Self.FK_TBLADISYON_TBLPERSONEL">
+            <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
+            <End Role="TBLADISYON" EntitySet="TBLADISYON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLADISYON_TBLSERVISTURU" Association="Self.FK_TBLADISYON_TBLSERVISTURU">
+            <End Role="TBLSERVISTURU" EntitySet="TBLSERVISTURU" />
+            <End Role="TBLADISYON" EntitySet="TBLADISYON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHESAPODEME_TBLADISYON" Association="Self.FK_TBLHESAPODEME_TBLADISYON">
+            <End Role="TBLADISYON" EntitySet="TBLADISYON" />
+            <End Role="TBLHESAPODEME" EntitySet="TBLHESAPODEME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHESAPODEME_TBLMUSTERI" Association="Self.FK_TBLHESAPODEME_TBLMUSTERI">
+            <End Role="TBLMUSTERI" EntitySet="TBLMUSTERI" />
+            <End Role="TBLHESAPODEME" EntitySet="TBLHESAPODEME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHESAPODEME_TBLODEMETURU" Association="Self.FK_TBLHESAPODEME_TBLODEMETURU">
+            <End Role="TBLODEMETURU" EntitySet="TBLODEMETURU" />
+            <End Role="TBLHESAPODEME" EntitySet="TBLHESAPODEME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLMASA_TBLSERVISTURU" Association="Self.FK_TBLMASA_TBLSERVISTURU">
+            <End Role="TBLSERVISTURU" EntitySet="TBLSERVISTURU" />
+            <End Role="TBLMASA" EntitySet="TBLMASA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSATISLAR_TBLADISYON" Association="Self.FK_TBLSATISLAR_TBLADISYON">
+            <End Role="TBLADISYON" EntitySet="TBLADISYON" />
+            <End Role="TBLSATISLAR" EntitySet="TBLSATISLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSATISLAR_TBLMASA" Association="Self.FK_TBLSATISLAR_TBLMASA">
+            <End Role="TBLMASA" EntitySet="TBLMASA" />
+            <End Role="TBLSATISLAR" EntitySet="TBLSATISLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSATISLAR_TBLURUN" Association="Self.FK_TBLSATISLAR_TBLURUN">
+            <End Role="TBLURUN" EntitySet="TBLURUN" />
+            <End Role="TBLSATISLAR" EntitySet="TBLSATISLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUN_TBLKATEGORI" Association="Self.FK_TBLURUN_TBLKATEGORI">
+            <End Role="TBLKATEGORI" EntitySet="TBLKATEGORI" />
+            <End Role="TBLURUN" EntitySet="TBLURUN" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbRestaurant26AModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TBLADISYON">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SERVISTURU" Type="Int32" />
+          <Property Name="PERSONELID" Type="Int32" />
+          <Property Name="MASAID" Type="Int32" />
+          <Property Name="TARIH" Type="DateTime" Precision="0" />
+          <Property Name="DURUM" Type="Boolean" />
+          <NavigationProperty Name="TBLMASA" Relationship="Self.FK_TBLADISYON_TBLMASA" FromRole="TBLADISYON" ToRole="TBLMASA" />
+          <NavigationProperty Name="TBLPERSONEL" Relationship="Self.FK_TBLADISYON_TBLPERSONEL" FromRole="TBLADISYON" ToRole="TBLPERSONEL" />
+          <NavigationProperty Name="TBLSERVISTURU" Relationship="Self.FK_TBLADISYON_TBLSERVISTURU" FromRole="TBLADISYON" ToRole="TBLSERVISTURU" />
+          <NavigationProperty Name="TBLHESAPODEME" Relationship="Self.FK_TBLHESAPODEME_TBLADISYON" FromRole="TBLADISYON" ToRole="TBLHESAPODEME" />
+          <NavigationProperty Name="TBLSATISLAR" Relationship="Self.FK_TBLSATISLAR_TBLADISYON" FromRole="TBLADISYON" ToRole="TBLSATISLAR" />
+        </EntityType>
+        <EntityType Name="TBLHESAPODEME">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADISYONID" Type="Int32" />
+          <Property Name="ODEMETURU" Type="Int32" />
+          <Property Name="ARATOPLAM" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="KDV" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="INDIRIM" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TOPLAMTUTAR" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TARIH" Type="DateTime" Precision="0" />
+          <Property Name="MUSTERIID" Type="Int32" />
+          <Property Name="DURUM" Type="Boolean" />
+          <NavigationProperty Name="TBLADISYON" Relationship="Self.FK_TBLHESAPODEME_TBLADISYON" FromRole="TBLHESAPODEME" ToRole="TBLADISYON" />
+          <NavigationProperty Name="TBLMUSTERI" Relationship="Self.FK_TBLHESAPODEME_TBLMUSTERI" FromRole="TBLHESAPODEME" ToRole="TBLMUSTERI" />
+          <NavigationProperty Name="TBLODEMETURU" Relationship="Self.FK_TBLHESAPODEME_TBLODEMETURU" FromRole="TBLHESAPODEME" ToRole="TBLODEMETURU" />
+        </EntityType>
+        <EntityType Name="TBLKATEGORI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KATEGORI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DURUM" Type="Boolean" />
+          <NavigationProperty Name="TBLURUN" Relationship="Self.FK_TBLURUN_TBLKATEGORI" FromRole="TBLKATEGORI" ToRole="TBLURUN" />
+        </EntityType>
+        <EntityType Name="TBLMASA">
+          <Key>
+            <PropertyRef Name="MASAID" />
+          </Key>
+          <Property Name="MASAID" Type="Int32" Nullable="false" />
+          <Property Name="KAPASITE" Type="Int32" />
+          <Property Name="SERVISTURU" Type="Int32" />
+          <Property Name="DURUM" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="AKTIFMI" Type="Boolean" />
+          <NavigationProperty Name="TBLADISYON" Relationship="Self.FK_TBLADISYON_TBLMASA" FromRole="TBLMASA" ToRole="TBLADISYON" />
+          <NavigationProperty Name="TBLSERVISTURU" Relationship="Self.FK_TBLMASA_TBLSERVISTURU" FromRole="TBLMASA" ToRole="TBLSERVISTURU" />
+          <NavigationProperty Name="TBLSATISLAR" Relationship="Self.FK_TBLSATISLAR_TBLMASA" FromRole="TBLMASA" ToRole="TBLSATISLAR" />
+        </EntityType>
+        <EntityType Name="TBLMUSTERI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADSOYAD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TEL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SIPARISSAYISI" Type="Int16" />
+          <Property Name="DURUM" Type="Boolean" />
+          <NavigationProperty Name="TBLHESAPODEME" Relationship="Self.FK_TBLHESAPODEME_TBLMUSTERI" FromRole="TBLMUSTERI" ToRole="TBLHESAPODEME" />
+        </EntityType>
+        <EntityType Name="TBLODEMETURU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ODEMETURU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DURUM" Type="Boolean" />
+          <NavigationProperty Name="TBLHESAPODEME" Relationship="Self.FK_TBLHESAPODEME_TBLODEMETURU" FromRole="TBLODEMETURU" ToRole="TBLHESAPODEME" />
+        </EntityType>
+        <EntityType Name="TBLPERSONEL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADSOYAD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GOREV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SIFRE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="KULLANICIADI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DURUM" Type="Boolean" />
+          <NavigationProperty Name="TBLADISYON" Relationship="Self.FK_TBLADISYON_TBLPERSONEL" FromRole="TBLPERSONEL" ToRole="TBLADISYON" />
+        </EntityType>
+        <EntityType Name="TBLSATISLAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADISYONID" Type="Int32" />
+          <Property Name="URUNID" Type="Int32" />
+          <Property Name="MASAID" Type="Int32" />
+          <Property Name="ADET" Type="Int32" />
+          <Property Name="DURUM" Type="Boolean" />
+          <NavigationProperty Name="TBLADISYON" Relationship="Self.FK_TBLSATISLAR_TBLADISYON" FromRole="TBLSATISLAR" ToRole="TBLADISYON" />
+          <NavigationProperty Name="TBLMASA" Relationship="Self.FK_TBLSATISLAR_TBLMASA" FromRole="TBLSATISLAR" ToRole="TBLMASA" />
+          <NavigationProperty Name="TBLURUN" Relationship="Self.FK_TBLSATISLAR_TBLURUN" FromRole="TBLSATISLAR" ToRole="TBLURUN" />
+        </EntityType>
+        <EntityType Name="TBLSERVISTURU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SERVISTURU" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBLADISYON" Relationship="Self.FK_TBLADISYON_TBLSERVISTURU" FromRole="TBLSERVISTURU" ToRole="TBLADISYON" />
+          <NavigationProperty Name="TBLMASA" Relationship="Self.FK_TBLMASA_TBLSERVISTURU" FromRole="TBLSERVISTURU" ToRole="TBLMASA" />
+        </EntityType>
+        <EntityType Name="TBLURUN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="URUNAD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KATEGORI" Type="Int32" />
+          <Property Name="FIYAT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DURUM" Type="Boolean" />
+          <NavigationProperty Name="TBLKATEGORI" Relationship="Self.FK_TBLURUN_TBLKATEGORI" FromRole="TBLURUN" ToRole="TBLKATEGORI" />
+          <NavigationProperty Name="TBLSATISLAR" Relationship="Self.FK_TBLSATISLAR_TBLURUN" FromRole="TBLURUN" ToRole="TBLSATISLAR" />
+        </EntityType>
+        <Association Name="FK_TBLADISYON_TBLMASA">
+          <End Role="TBLMASA" Type="Self.TBLMASA" Multiplicity="0..1" />
+          <End Role="TBLADISYON" Type="Self.TBLADISYON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLMASA">
+              <PropertyRef Name="MASAID" />
+            </Principal>
+            <Dependent Role="TBLADISYON">
+              <PropertyRef Name="MASAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLADISYON_TBLPERSONEL">
+          <End Role="TBLPERSONEL" Type="Self.TBLPERSONEL" Multiplicity="0..1" />
+          <End Role="TBLADISYON" Type="Self.TBLADISYON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONEL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLADISYON">
+              <PropertyRef Name="PERSONELID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLADISYON_TBLSERVISTURU">
+          <End Role="TBLSERVISTURU" Type="Self.TBLSERVISTURU" Multiplicity="0..1" />
+          <End Role="TBLADISYON" Type="Self.TBLADISYON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLSERVISTURU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLADISYON">
+              <PropertyRef Name="SERVISTURU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHESAPODEME_TBLADISYON">
+          <End Role="TBLADISYON" Type="Self.TBLADISYON" Multiplicity="0..1" />
+          <End Role="TBLHESAPODEME" Type="Self.TBLHESAPODEME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLADISYON">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHESAPODEME">
+              <PropertyRef Name="ADISYONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSATISLAR_TBLADISYON">
+          <End Role="TBLADISYON" Type="Self.TBLADISYON" Multiplicity="0..1" />
+          <End Role="TBLSATISLAR" Type="Self.TBLSATISLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLADISYON">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLSATISLAR">
+              <PropertyRef Name="ADISYONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHESAPODEME_TBLMUSTERI">
+          <End Role="TBLMUSTERI" Type="Self.TBLMUSTERI" Multiplicity="0..1" />
+          <End Role="TBLHESAPODEME" Type="Self.TBLHESAPODEME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLMUSTERI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHESAPODEME">
+              <PropertyRef Name="MUSTERIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHESAPODEME_TBLODEMETURU">
+          <End Role="TBLODEMETURU" Type="Self.TBLODEMETURU" Multiplicity="0..1" />
+          <End Role="TBLHESAPODEME" Type="Self.TBLHESAPODEME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLODEMETURU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLHESAPODEME">
+              <PropertyRef Name="ODEMETURU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUN_TBLKATEGORI">
+          <End Role="TBLKATEGORI" Type="Self.TBLKATEGORI" Multiplicity="0..1" />
+          <End Role="TBLURUN" Type="Self.TBLURUN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLURUN">
+              <PropertyRef Name="KATEGORI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLMASA_TBLSERVISTURU">
+          <End Role="TBLSERVISTURU" Type="Self.TBLSERVISTURU" Multiplicity="0..1" />
+          <End Role="TBLMASA" Type="Self.TBLMASA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLSERVISTURU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLMASA">
+              <PropertyRef Name="SERVISTURU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSATISLAR_TBLMASA">
+          <End Role="TBLMASA" Type="Self.TBLMASA" Multiplicity="0..1" />
+          <End Role="TBLSATISLAR" Type="Self.TBLSATISLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLMASA">
+              <PropertyRef Name="MASAID" />
+            </Principal>
+            <Dependent Role="TBLSATISLAR">
+              <PropertyRef Name="MASAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSATISLAR_TBLURUN">
+          <End Role="TBLURUN" Type="Self.TBLURUN" Multiplicity="0..1" />
+          <End Role="TBLSATISLAR" Type="Self.TBLSATISLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLURUN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLSATISLAR">
+              <PropertyRef Name="URUNID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbRestaurant26AEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TBLADISYON" EntityType="Self.TBLADISYON" />
+          <EntitySet Name="TBLHESAPODEME" EntityType="Self.TBLHESAPODEME" />
+          <EntitySet Name="TBLKATEGORI" EntityType="Self.TBLKATEGORI" />
+          <EntitySet Name="TBLMASA" EntityType="Self.TBLMASA" />
+          <EntitySet Name="TBLMUSTERI" EntityType="Self.TBLMUSTERI" />
+          <EntitySet Name="TBLODEMETURU" EntityType="Self.TBLODEMETURU" />
+          <EntitySet Name="TBLPERSONEL" EntityType="Self.TBLPERSONEL" />
+          <EntitySet Name="TBLSATISLAR" EntityType="Self.TBLSATISLAR" />
+          <EntitySet Name="TBLSERVISTURU" EntityType="Self.TBLSERVISTURU" />
+          <EntitySet Name="TBLURUN" EntityType="Self.TBLURUN" />
+          <AssociationSet Name="FK_TBLADISYON_TBLMASA" Association="Self.FK_TBLADISYON_TBLMASA">
+            <End Role="TBLMASA" EntitySet="TBLMASA" />
+            <End Role="TBLADISYON" EntitySet="TBLADISYON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLADISYON_TBLPERSONEL" Association="Self.FK_TBLADISYON_TBLPERSONEL">
+            <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
+            <End Role="TBLADISYON" EntitySet="TBLADISYON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLADISYON_TBLSERVISTURU" Association="Self.FK_TBLADISYON_TBLSERVISTURU">
+            <End Role="TBLSERVISTURU" EntitySet="TBLSERVISTURU" />
+            <End Role="TBLADISYON" EntitySet="TBLADISYON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHESAPODEME_TBLADISYON" Association="Self.FK_TBLHESAPODEME_TBLADISYON">
+            <End Role="TBLADISYON" EntitySet="TBLADISYON" />
+            <End Role="TBLHESAPODEME" EntitySet="TBLHESAPODEME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSATISLAR_TBLADISYON" Association="Self.FK_TBLSATISLAR_TBLADISYON">
+            <End Role="TBLADISYON" EntitySet="TBLADISYON" />
+            <End Role="TBLSATISLAR" EntitySet="TBLSATISLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHESAPODEME_TBLMUSTERI" Association="Self.FK_TBLHESAPODEME_TBLMUSTERI">
+            <End Role="TBLMUSTERI" EntitySet="TBLMUSTERI" />
+            <End Role="TBLHESAPODEME" EntitySet="TBLHESAPODEME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHESAPODEME_TBLODEMETURU" Association="Self.FK_TBLHESAPODEME_TBLODEMETURU">
+            <End Role="TBLODEMETURU" EntitySet="TBLODEMETURU" />
+            <End Role="TBLHESAPODEME" EntitySet="TBLHESAPODEME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUN_TBLKATEGORI" Association="Self.FK_TBLURUN_TBLKATEGORI">
+            <End Role="TBLKATEGORI" EntitySet="TBLKATEGORI" />
+            <End Role="TBLURUN" EntitySet="TBLURUN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLMASA_TBLSERVISTURU" Association="Self.FK_TBLMASA_TBLSERVISTURU">
+            <End Role="TBLSERVISTURU" EntitySet="TBLSERVISTURU" />
+            <End Role="TBLMASA" EntitySet="TBLMASA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSATISLAR_TBLMASA" Association="Self.FK_TBLSATISLAR_TBLMASA">
+            <End Role="TBLMASA" EntitySet="TBLMASA" />
+            <End Role="TBLSATISLAR" EntitySet="TBLSATISLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSATISLAR_TBLURUN" Association="Self.FK_TBLSATISLAR_TBLURUN">
+            <End Role="TBLURUN" EntitySet="TBLURUN" />
+            <End Role="TBLSATISLAR" EntitySet="TBLSATISLAR" />
+          </AssociationSet>
+          <EntitySet Name="TBLISLEMLOG" EntityType="DbRestaurant26AModel.TBLISLEMLOG" />
+          <EntitySet Name="TBLKASAHARAKET" EntityType="DbRestaurant26AModel.TBLKASAHARAKET" />
+          <EntitySet Name="TBLGUNSONU" EntityType="DbRestaurant26AModel.TBLGUNSONU" />
+        </EntityContainer>
+        <EntityType Name="TBLISLEMLOG">
+          <Key>
+            <PropertyRef Name="IslemID" />
+          </Key>
+          <Property Name="IslemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="IslemTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kullanici" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLKASAHARAKET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ISLEMTURU" Type="Boolean" />
+          <Property Name="TARIHSAAT" Type="DateTime" Precision="3" />
+          <Property Name="TUTAR" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLGUNSONU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+          <Property Name="TOPLAMNAKIT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TOPLAMKART" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TOPLAMTICKET" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TOPLAMDIGER" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TOPLAMQR" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KASAGIRISI" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KASACIKISI" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NETBAKIYE" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbRestaurant26AModelStoreContainer" CdmEntityContainer="DbRestaurant26AEntities1">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLADISYON">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLADISYON">
+              <MappingFragment StoreEntitySet="TBLADISYON">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SERVISTURU" ColumnName="SERVISTURU" />
+                <ScalarProperty Name="PERSONELID" ColumnName="PERSONELID" />
+                <ScalarProperty Name="MASAID" ColumnName="MASAID" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLHESAPODEME">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLHESAPODEME">
+              <MappingFragment StoreEntitySet="TBLHESAPODEME">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ADISYONID" ColumnName="ADISYONID" />
+                <ScalarProperty Name="ODEMETURU" ColumnName="ODEMETURU" />
+                <ScalarProperty Name="ARATOPLAM" ColumnName="ARATOPLAM" />
+                <ScalarProperty Name="KDV" ColumnName="KDV" />
+                <ScalarProperty Name="INDIRIM" ColumnName="INDIRIM" />
+                <ScalarProperty Name="TOPLAMTUTAR" ColumnName="TOPLAMTUTAR" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="MUSTERIID" ColumnName="MUSTERIID" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLKATEGORI">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLKATEGORI">
+              <MappingFragment StoreEntitySet="TBLKATEGORI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLMASA">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLMASA">
+              <MappingFragment StoreEntitySet="TBLMASA">
+                <ScalarProperty Name="MASAID" ColumnName="MASAID" />
+                <ScalarProperty Name="KAPASITE" ColumnName="KAPASITE" />
+                <ScalarProperty Name="SERVISTURU" ColumnName="SERVISTURU" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+                <ScalarProperty Name="AKTIFMI" ColumnName="AKTIFMI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLMUSTERI">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLMUSTERI">
+              <MappingFragment StoreEntitySet="TBLMUSTERI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ADSOYAD" ColumnName="ADSOYAD" />
+                <ScalarProperty Name="TEL" ColumnName="TEL" />
+                <ScalarProperty Name="SIPARISSAYISI" ColumnName="SIPARISSAYISI" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLODEMETURU">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLODEMETURU">
+              <MappingFragment StoreEntitySet="TBLODEMETURU">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ODEMETURU" ColumnName="ODEMETURU" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLPERSONEL">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLPERSONEL">
+              <MappingFragment StoreEntitySet="TBLPERSONEL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ADSOYAD" ColumnName="ADSOYAD" />
+                <ScalarProperty Name="GOREV" ColumnName="GOREV" />
+                <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+                <ScalarProperty Name="KULLANICIADI" ColumnName="KULLANICIADI" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSATISLAR">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLSATISLAR">
+              <MappingFragment StoreEntitySet="TBLSATISLAR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ADISYONID" ColumnName="ADISYONID" />
+                <ScalarProperty Name="URUNID" ColumnName="URUNID" />
+                <ScalarProperty Name="MASAID" ColumnName="MASAID" />
+                <ScalarProperty Name="ADET" ColumnName="ADET" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSERVISTURU">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLSERVISTURU">
+              <MappingFragment StoreEntitySet="TBLSERVISTURU">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SERVISTURU" ColumnName="SERVISTURU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLURUN">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLURUN">
+              <MappingFragment StoreEntitySet="TBLURUN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="URUNAD" ColumnName="URUNAD" />
+                <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />
+                <ScalarProperty Name="FIYAT" ColumnName="FIYAT" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLISLEMLOG">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLISLEMLOG">
+              <MappingFragment StoreEntitySet="TBLISLEMLOG">
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+                <ScalarProperty Name="IslemTuru" ColumnName="IslemTuru" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="IslemID" ColumnName="IslemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLKASAHARAKET">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLKASAHARAKET">
+              <MappingFragment StoreEntitySet="TBLKASAHARAKET">
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="TUTAR" ColumnName="TUTAR" />
+                <ScalarProperty Name="TARIHSAAT" ColumnName="TARIHSAAT" />
+                <ScalarProperty Name="ISLEMTURU" ColumnName="ISLEMTURU" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLGUNSONU">
+            <EntityTypeMapping TypeName="DbRestaurant26AModel.TBLGUNSONU">
+              <MappingFragment StoreEntitySet="TBLGUNSONU">
+                <ScalarProperty Name="NETBAKIYE" ColumnName="NETBAKIYE" />
+                <ScalarProperty Name="KASACIKISI" ColumnName="KASACIKISI" />
+                <ScalarProperty Name="KASAGIRISI" ColumnName="KASAGIRISI" />
+                <ScalarProperty Name="TOPLAMQR" ColumnName="TOPLAMQR" />
+                <ScalarProperty Name="TOPLAMDIGER" ColumnName="TOPLAMDIGER" />
+                <ScalarProperty Name="TOPLAMTICKET" ColumnName="TOPLAMTICKET" />
+                <ScalarProperty Name="TOPLAMKART" ColumnName="TOPLAMKART" />
+                <ScalarProperty Name="TOPLAMNAKIT" ColumnName="TOPLAMNAKIT" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

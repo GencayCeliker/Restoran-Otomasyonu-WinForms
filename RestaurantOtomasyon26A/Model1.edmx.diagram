@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="626e8a5ca99646968eb3c3f353e0891b" Name="Diagram1">
+        <EntityTypeShape EntityType="DbRestaurant26AModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLADISYON" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLHESAPODEME" Width="1.5" PointX="7.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLKATEGORI" Width="1.5" PointX="6" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLMASA" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLMUSTERI" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLODEMETURU" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLPERSONEL" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLSATISLAR" Width="1.5" PointX="10.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLSERVISTURU" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLURUN" Width="1.5" PointX="8.25" PointY="14.125" IsExpanded="true" />
+        <AssociationConnector Association="DbRestaurant26AModel.FK_TBLADISYON_TBLMASA" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRestaurant26AModel.FK_TBLADISYON_TBLPERSONEL" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRestaurant26AModel.FK_TBLADISYON_TBLSERVISTURU" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRestaurant26AModel.FK_TBLHESAPODEME_TBLADISYON" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRestaurant26AModel.FK_TBLSATISLAR_TBLADISYON" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRestaurant26AModel.FK_TBLHESAPODEME_TBLMUSTERI" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRestaurant26AModel.FK_TBLHESAPODEME_TBLODEMETURU" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRestaurant26AModel.FK_TBLURUN_TBLKATEGORI" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRestaurant26AModel.FK_TBLMASA_TBLSERVISTURU" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRestaurant26AModel.FK_TBLSATISLAR_TBLMASA" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRestaurant26AModel.FK_TBLSATISLAR_TBLURUN" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLISLEMLOG" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLKASAHARAKET" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DbRestaurant26AModel.TBLGUNSONU" Width="1.5" PointX="9.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
