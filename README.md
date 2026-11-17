@@ -59,3 +59,7 @@ Kullanıcı adı ve şifre ile giriş; personelin görevine göre (**Admin / Kas
 | Admin | `a` |
 | Kasiyer | `k` |
 | Garson | `g` |
+
+## 📄 Lisans
+
+Bu proje [MIT](LICENSE) lisansı altında sunulmuştur.
