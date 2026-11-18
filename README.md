@@ -12,6 +12,27 @@ Restoranda **garson, kasiyer ve yönetici** rollerine göre ayrı paneller sunan
 
 ---
 
+## 🎬 Demo
+
+![demo-admin](docs/demo-admin.gif)
+
+**Admin paneli:** dashboard, personel, ürün, kategori, masa yönetimi ve raporlar.
+
+![demo-garson](docs/demo-garson.gif)
+
+**Garson paneli:** masa düzeni, siparişler, adisyonlar ve müşteriler.
+
+![demo-kasiyer](docs/demo-kasiyer.gif)
+
+**Kasiyer paneli:** sipariş, ödeme, açık adisyonlar, kasa işlemleri ve raporlar.
+
+| Admin dashboard | Garson: masa düzeni |
+| --- | --- |
+| ![Admin dashboard](docs/admin-dashboard.png) | ![Garson: masa düzeni](docs/garson-masa-duzeni.png) |
+
+> Görüntüler, depodaki kurulum script'iyle kurulan örnek veritabanı üzerinde uygulama çalıştırılarak alınmıştır.
+
+
 ## 🚀 Özellikler
 
 ### 🔐 Giriş
